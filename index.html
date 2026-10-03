@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Roshan Sharma - AI Mentor, Student, Tech Explorer and Future Logistics Innovator">
+    <title>Roshan Sharma | AI Mentor & Student</title>
+
+    <style>
+        /* =========================
+           RESET & GLOBAL
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #f7f8fc;
+            --card: #ffffff;
+            --text: #111827;
+            --muted: #667085;
+            --primary: #635bff;
+            --secondary: #00bfa6;
+            --border: #e5e7eb;
+            --shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+
+        body.dark {
+            --bg: #080b12;
+            --card: #111722;
+            --text: #f5f7fb;
+            --muted: #aab2c0;
+            --primary: #8b83ff;
+            --secondary: #20d6bd;
+            --border: #202938;
+            --shadow: 0 20px 50px rgba(0,0,0,0.35);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            transition: 0.3s ease;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title span {
+            color: var(--primary);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(32px, 5vw, 48px);
+            margin-top: 8px;
+        }
+
+        .section-title p {
+            max-width: 650px;
+            margin: 15px auto;
+            color: var(--muted);
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(247,248,252,0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        body.dark nav {
+            background: rgba(8,11,18,0.85);
+        }
+
+        .nav-inner {
+            height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .theme-btn,
+        .menu-btn {
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        .menu-btn {
+            display: none;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--primary);
+            opacity: 0.10;
+            filter: blur(100px);
+            border-radius: 50%;
+            top: 100px;
+            right: -100px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            color: var(--primary);
+            background: var(--card);
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 85px);
+            line-height: 0.95;
+            letter-spacing: -4px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero h3 {
+            font-size: 25px;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 650px;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 24px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .profile-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile {
+            width: 330px;
+            height: 390px;
+            border-radius: 30px;
+            padding: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: rotate(3deg);
+            box-shadow: var(--shadow);
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 23px;
+            transform: rotate(-3deg);
+        }
+
+        /* =========================
+           STATS
+        ========================== */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .stat {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stat h3 {
+            color: var(--primary);
+            font-size: 30px;
+        }
+
+        .stat p {
+            color: var(--muted);
+        }
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-card h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .about-card p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        /* =========================
+           ACHIEVEMENTS
+        ========================== */
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .achievement {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 18px;
+            transition: 0.3s;
+        }
+
+        .achievement:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+        }
+
+        .achievement-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .achievement h3 {
+            margin-bottom: 10px;
+        }
+
+        .achievement p {
+            color: var(--muted);
+        }
+
+        /* =========================
+           VALUES
+        ========================== */
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 15px;
+        }
+
+        .value {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 22px;
+            border-radius: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .value:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        /* =========================
+           SERVICES
+        ========================== */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 25px;
+        }
+
+        .service {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 35px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .service:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .service h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .service p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .service ul {
+            list-style: none;
+        }
+
+        .service li {
+            color: var(--muted);
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .service li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-box {
+            background: linear-gradient(135deg, var(--primary), #332d91);
+            color: white;
+            border-radius: 25px;
+            padding: 60px 30px;
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            font-size: clamp(32px,5vw,55px);
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            opacity: 0.9;
+            max-width: 650px;
+            margin: 0 auto 30px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            background: white;
+            color: #222;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+        }
+
+        footer strong {
+            color: var(--text);
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media(max-width: 850px) {
+
+            .nav-links {
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: var(--card);
+                border-bottom: 1px solid var(--border);
+                flex-direction: column;
+                padding: 25px;
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .profile-wrapper {
+                order: -1;
+            }
+
+            .achievement-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width: 500px) {
+
+            .section {
+                padding: 70px 0;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .profile {
+                width: 280px;
+                height: 330px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav>
+        <div class="container nav-inner">
+
+            <a href="#home" class="logo">
+                ROSHAN<span>.</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#values">Values</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div style="display:flex; gap:10px;">
+                <button class="theme-btn" id="themeBtn">🌙</button>
+                <button class="menu-btn" id="menuBtn">☰</button>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero" id="home">
+
+        <div class="container hero-grid">
+
+            <div class="hero-content reveal">
+
+                <div class="badge">
+                    🚀 AI Mentor • Student • Tech Explorer
+                </div>
+
+                <h1>
+                    ROSHAN<br>
+                    <span>SHARMA</span>
+                </h1>
+
+                <h3>
+                    AI Mentor & Student
+                </h3>
+
+                <p>
+                    Exploring artificial intelligence, technology, business,
+                    and the future of logistics. I build skills, experiment
+                    with emerging technologies, and work toward creating
+                    smarter business systems.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#about" class="btn btn-primary">
+                        Explore My Journey
+                    </a>
+
+                    <a href="#contact" class="btn">
+                        Let's Connect
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-wrapper reveal">
+
+                <div class="profile">
+                    <img src="IMAGE.JPG" alt="Roshan Sharma">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         STATS
+    ========================== -->
+
+    <section class="container">
+
+        <div class="stats reveal">
+
+            <div class="stat">
+                <h3>AI</h3>
+                <p>Technology Focus</p>
+            </div>
+
+            <div class="stat">
+                <h3>3PL</h3>
+                <p>Future Business Vision</p>
+            </div>
+
+            <div class="stat">
+                <h3>∞</h3>
+                <p>Learning Mindset</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="section" id="about">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+                <span>Who I Am</span>
+                <h2>About Me</h2>
+            </div>
+
+            <div class="about-grid">
+
+                <div class="about-card reveal">
+
+                    <h3>👋 Hello, I'm Roshan.</h3>
+
+                    <p>
+                        I am Roshan Sharma—an ambitious student, tech explorer,
+                        and future logistics innovator.
+                    </p>
+
+                    <p>
+                        I am positioned at the intersection of artificial
+                        intelligence and supply chain operations, driven by
+                        a long-term vision to build a next-generation
+                        Third-Party Logistics (3PL) company.
+                    </p>
+
+                    <p>
+                        I believe the future of global commerce belongs to
+                        people who can leverage data, automation, and machine
+                        learning to move assets smarter, safer, and faster.
+                    </p>
+
+                </div>
+
+
+                <div class="about-card reveal">
+
+                    <h3>My Mission</h3>
+
+                    <p>
+                        As a relentless experimenter, I actively test and
+                        deploy new AI tools and emerging technologies to
+                        optimize complex business workflows.
+                    </p>
+
+                    <p>
+                        I combine technical curiosity with a rigorous work
+                        ethic and proactive mindset. I am always ready to
+                        explore new challenges, collaborative projects,
+                        internships, hackathons, and professional opportunities.
+                    </p>
+
+                    <p>
+                        I don't just watch the future of business happen;
+                        I am actively building the skills to participate
+                        in it.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ACHIEVEMENTS
+    ========================== -->
+
+    <section class="section" id="achievements">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+                <span>Milestones</span>
+                <h2>Achievements</h2>
+                <p>
+                    A few experiences and accomplishments that have shaped
+                    my journey.
+                </p>
+            </div>
+
+            <div class="achievement-grid">
+
+                <div class="achievement reveal">
+
+                    <div class="achievement-icon">🏆</div>
+
+                    <h3>Best Student Award</h3>
+
+                    <p>
+                        Recognized with the Best Student Award during
+                        high school.
+                    </p>
+
+                </div>
+
+
+                <div class="achievement reveal">
+
+                    <div class="achievement-icon">🤖</div>
+
+                    <h3>AI Web Development</h3>
+
+                    <p>
+                        Achieved first place in an AI and web development
+                        related competition.
+                    </p>
+
+                </div>
+
+
+                <div class="achievement reveal">
+
+                    <div class="achievement-icon">📦</div>
+
+                    <h3>Mero Kinmel</h3>
+
+                    <p>
+                        Got the opportunity to work as a Customer Care
+                        Executive at the logistics company Mero Kinmel.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CORE VALUES
+    ========================== -->
+
+    <section class="section" id="values">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <span>What Guides Me</span>
+
+                <h2>My Core Values</h2>
+
+            </div>
+
+
+            <div class="values-grid">
+
+                <div class="value reveal">🎯 Discipline</div>
+
+                <div class="value reveal">🧠 Intellectual Humility</div>
+
+                <div class="value reveal">🔍 Skepticism & Critical Thinking</div>
+
+                <div class="value reveal">📐 Precision & Quality</div>
+
+                <div class="value reveal">📊 Evidence-Based Action</div>
+
+                <div class="value reveal">💡 Clarity Over Complexity</div>
+
+                <div class="value reveal">🔎 Radical Transparency</div>
+
+                <div class="value reveal">❤️ Empathetic Ingenuity</div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SERVICES
+    ========================== -->
+
+    <section class="section" id="services">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <span>What I Do</span>
+
+                <h2>My Services</h2>
+
+                <p>
+                    Technology-focused support for businesses, startups,
+                    projects, and logistics teams.
+                </p>
+
+            </div>
+
+
+            <div class="services-grid">
+
+
+                <!-- SERVICE 1 -->
+
+                <div class="service reveal">
+
+                    <div class="service-icon">🤖</div>
+
+                    <h3>
+                        AI Integration & Workflow Automation
+                    </h3>
+
+                    <p>
+                        Helping small businesses and modern projects
+                        eliminate repetitive tasks and streamline operations.
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Workflow Optimization using Make, Zapier,
+                            and AI agents.
+                        </li>
+
+                        <li>
+                            AI tool research, testing, and recommendations.
+                        </li>
+
+                        <li>
+                            Prompt engineering and specialized AI assistants.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- SERVICE 2 -->
+
+                <div class="service reveal">
+
+                    <div class="service-icon">📦</div>
+
+                    <h3>
+                        Supply Chain & 3PL Strategy
+                    </h3>
+
+                    <p>
+                        Research and technology-focused support for
+                        early-stage logistics operations.
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Logistics technology audits.
+                        </li>
+
+                        <li>
+                            Inventory workflow analysis.
+                        </li>
+
+                        <li>
+                            Route optimization analysis.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- SERVICE 3 -->
+
+                <div class="service reveal">
+
+                    <div class="service-icon">🛠️</div>
+
+                    <h3>
+                        Tech-Driven Business Operations
+                    </h3>
+
+                    <p>
+                        Operational assistance for startups, technology
+                        projects, and logistics teams.
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Data analysis and reporting.
+                        </li>
+
+                        <li>
+                            Operational workflow improvement.
+                        </li>
+
+                        <li>
+                            Fast-learning project execution.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- SERVICE 4 -->
+
+                <div class="service reveal">
+
+                    <div class="service-icon">📈</div>
+
+                    <h3>
+                        AI-Driven Digital Marketing
+                    </h3>
+
+                    <p>
+                        Using AI tools and data-driven approaches to
+                        improve digital presence.
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            AI-powered content strategy.
+                        </li>
+
+                        <li>
+                            SEO and digital visibility research.
+                        </li>
+
+                        <li>
+                            Growth analytics and performance tracking.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section class="section" id="contact">
+
+        <div class="container">
+
+            <div class="contact-box reveal">
+
+                <h2>Let's Build Something.</h2>
+
+                <p>
+                    I am always open to internships, hackathons,
+                    collaborative projects, and conversations about the
+                    future of AI-driven supply chains.
+                </p>
+
+                <div class="contact-buttons">
+
+                    <a
+                        class="contact-btn"
+                        href="mailto:roshansarma1771@gmail.com"
+                    >
+                        📧 Email Me
+                    </a>
+
+                    <a
+                        class="contact-btn"
+                        href="https://www.facebook.com/"
+                        target="_blank"
+                    >
+                        Facebook
+                    </a>
+
+                    <a
+                        class="contact-btn"
+                        href="https://www.instagram.com/"
+                        target="_blank"
+                    >
+                        Instagram
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © <span id="year"></span>
+                <strong>Roshan Sharma</strong>.
+                Built with HTML, CSS & JavaScript.
+            </p>
+
+            <p>
+                AI Mentor • Student • Future Logistics Innovator
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        // =========================
+        // MOBILE MENU
+        // =========================
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", () => {
+
+            navLinks.classList.toggle("active");
+
+            menuBtn.textContent =
+                navLinks.classList.contains("active")
+                ? "✕"
+                : "☰";
+
+        });
+
+
+        // Close mobile menu after clicking a link
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("active");
+
+                menuBtn.textContent = "☰";
+
+            });
+
+        });
+
+
+        // =========================
+        // DARK MODE
+        // =========================
+
+        const themeBtn = document.getElementById("themeBtn");
+
+        themeBtn.addEventListener("click", () => {
+
+            document.body.classList.toggle("dark");
+
+            if (document.body.classList.contains("dark")) {
+
+                themeBtn.textContent = "☀️";
+
+                localStorage.setItem("theme", "dark");
+
+            } else {
+
+                themeBtn.textContent = "🌙";
+
+                localStorage.setItem("theme", "light");
+
+            }
+
+        });
+
+
+        // Remember theme
+
+        if (localStorage.getItem("theme") === "dark") {
+
+            document.body.classList.add("dark");
+
+            themeBtn.textContent = "☀️";
+
+        }
+
+
+        // =========================
+        // SCROLL REVEAL ANIMATION
+        // =========================
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const revealOnScroll = () => {
+
+            const windowHeight = window.innerHeight;
+
+            revealElements.forEach(element => {
+
+                const elementTop =
+                    element.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - 80) {
+
+                    element.classList.add("active");
+
+                }
+
+            });
+
+        };
+
+        window.addEventListener("scroll", revealOnScroll);
+
+        revealOnScroll();
+
+
+        // =========================
+        // CURRENT YEAR
+        // =========================
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
